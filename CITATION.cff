@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite the paper and/or this repository."
+title: "UAV-FL-PM2.5: Field data and reproducible transfer federated learning pipeline for LoRaWAN-connected multi-UAV industrial PM2.5 monitoring"
+type: dataset
+authors:
+  - family-names: Ramadan
+    given-names: Montaser N. A.
+    affiliation: "Department of Mechanical Engineering, Universiti Malaya, Kuala Lumpur, Malaysia"
+  - family-names: Saygin
+    given-names: Hasan
+    affiliation: "Application and Research Center for Advanced Studies, Istanbul Aydin University, Istanbul, Turkiye"
+repository-code: "https://github.com/montaserramadan/UAV-FL-PM2.5"
+license: MIT
+keywords:
+  - federated learning
+  - transfer learning
+  - UAV
+  - LoRaWAN
+  - edge AI
+  - PM2.5
+  - non-IID
+  - air quality
+preferred-citation:
+  type: article
+  title: "Communication-Efficient Transfer Federated Learning on a LoRaWAN-Connected Multi-UAV System for Field Monitoring of Industrial PM2.5"
+  authors:
+    - family-names: Ramadan
+      given-names: Montaser N. A.
+    - family-names: Saygin
+      given-names: Hasan
+  journal: "ICT Express"
+  year: 2026
+  notes: "Under review"
