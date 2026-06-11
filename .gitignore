@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+results_spatial.json
+results_fl.json
+.DS_Store
