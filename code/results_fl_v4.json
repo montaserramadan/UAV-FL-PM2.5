@@ -1,0 +1,1121 @@
+{
+  "seeds": [
+    42,
+    1,
+    2,
+    3,
+    4
+  ],
+  "frag_hdr_bytes": 2,
+  "n_nodes": 3,
+  "zone_parameters": {
+    "Zone1": {
+      "date": "7/21/2025",
+      "start": "12:35:36",
+      "end": "12:52:49",
+      "duration_min": 17.2,
+      "samples": 202,
+      "pm25_mean": 40.9,
+      "pm25_median": 33.5,
+      "pm25_cv": 0.77,
+      "pm25_min": 4,
+      "pm25_max": 151,
+      "temp_mean": 37.8,
+      "temp_min": 25.3,
+      "temp_max": 41.3,
+      "rh_mean": 31.8,
+      "rh_min": 28.1,
+      "rh_max": 44.7
+    },
+    "Zone2": {
+      "date": "7/22/2025",
+      "start": "11:18:56",
+      "end": "11:39:13",
+      "duration_min": 20.3,
+      "samples": 236,
+      "pm25_mean": 23.2,
+      "pm25_median": 18.5,
+      "pm25_cv": 0.74,
+      "pm25_min": 4,
+      "pm25_max": 135,
+      "temp_mean": 41.0,
+      "temp_min": 30.1,
+      "temp_max": 44.6,
+      "rh_mean": 28.2,
+      "rh_min": 25.6,
+      "rh_max": 36.3
+    },
+    "Zone3": {
+      "date": "7/23/2025",
+      "start": "12:45:48",
+      "end": "13:06:29",
+      "duration_min": 20.7,
+      "samples": 240,
+      "pm25_mean": 11.6,
+      "pm25_median": 11.0,
+      "pm25_cv": 0.28,
+      "pm25_min": 5,
+      "pm25_max": 26,
+      "temp_mean": 39.9,
+      "temp_min": 28.6,
+      "temp_max": 43.6,
+      "rh_mean": 33.2,
+      "rh_min": 29.2,
+      "rh_max": 47.3
+    }
+  },
+  "persistence_per_zone": {
+    "Zone1": {
+      "rmse": 12.241615384286376,
+      "mae": 8.061224937438965,
+      "r2": 0.7660610675811768
+    },
+    "Zone2": {
+      "rmse": 11.375710266072057,
+      "mae": 4.864408016204834,
+      "r2": 0.8289327025413513
+    },
+    "Zone3": {
+      "rmse": 1.384437855828495,
+      "mae": 0.7833353877067566,
+      "r2": 0.8277539610862732
+    }
+  },
+  "comms": {
+    "rows": {
+      "dense_f32": {
+        "rmse_mean": 6.618543150399603,
+        "payload_bytes": 5956.0,
+        "v3_frames": 27,
+        "v3_rounds_per_day": 91.8,
+        "uplink": {
+          "payload_bytes": 5956.0,
+          "frames": 28,
+          "airtime_per_frame_s": 0.348,
+          "airtime_update_s": 9.756,
+          "min_cycle_s": 975.6,
+          "max_uplink_rounds_per_day": 88.6
+        },
+        "downlink": {
+          "RX1_SF7": {
+            "window": "RX1_SF7",
+            "note": "uplink channel, DR5/SF7, ETSI g1 sub-band",
+            "sf": 7,
+            "max_app_payload": 222,
+            "duty": 0.01,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 28,
+            "airtime_per_frame_s": 0.348,
+            "airtime_per_node_s": 9.756,
+            "airtime_per_round_s": 29.267,
+            "max_downlink_rounds_per_day": 29.5
+          },
+          "RX2_SF9": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 53,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 32.617,
+            "airtime_per_round_s": 97.852,
+            "max_downlink_rounds_per_day": 88.3
+          },
+          "RX2_SF12": {
+            "window": "RX2_SF12",
+            "note": "869.525 MHz, DR0/SF12 regional-parameter default, ETSI g3",
+            "sf": 12,
+            "max_app_payload": 51,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 122,
+            "airtime_per_frame_s": 2.466,
+            "airtime_per_node_s": 300.827,
+            "airtime_per_round_s": 902.48,
+            "max_downlink_rounds_per_day": 9.6
+          }
+        },
+        "end_to_end_rx2_sf9": {
+          "uplink": {
+            "payload_bytes": 5956.0,
+            "frames": 28,
+            "airtime_per_frame_s": 0.348,
+            "airtime_update_s": 9.756,
+            "min_cycle_s": 975.6,
+            "max_uplink_rounds_per_day": 88.6
+          },
+          "downlink": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 53,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 32.617,
+            "airtime_per_round_s": 97.852,
+            "max_downlink_rounds_per_day": 88.3
+          },
+          "sustainable_rounds_per_day": 88.3,
+          "binding_side": "downlink"
+        },
+        "crossover_nodes_rx2_sf9": 2.99
+      },
+      "quant_only": {
+        "rmse_mean": 6.6235836250959865,
+        "payload_bytes": 1513.0,
+        "v3_frames": 7,
+        "v3_rounds_per_day": 354.3,
+        "uplink": {
+          "payload_bytes": 1513.0,
+          "frames": 7,
+          "airtime_per_frame_s": 0.348,
+          "airtime_update_s": 2.439,
+          "min_cycle_s": 243.9,
+          "max_uplink_rounds_per_day": 354.3
+        },
+        "downlink": {
+          "RX1_SF7": {
+            "window": "RX1_SF7",
+            "note": "uplink channel, DR5/SF7, ETSI g1 sub-band",
+            "sf": 7,
+            "max_app_payload": 222,
+            "duty": 0.01,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 7,
+            "airtime_per_frame_s": 0.348,
+            "airtime_per_node_s": 2.439,
+            "airtime_per_round_s": 7.317,
+            "max_downlink_rounds_per_day": 118.1
+          },
+          "RX2_SF9": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 14,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 8.616,
+            "airtime_per_round_s": 25.848,
+            "max_downlink_rounds_per_day": 334.3
+          },
+          "RX2_SF12": {
+            "window": "RX2_SF12",
+            "note": "869.525 MHz, DR0/SF12 regional-parameter default, ETSI g3",
+            "sf": 12,
+            "max_app_payload": 51,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 31,
+            "airtime_per_frame_s": 2.466,
+            "airtime_per_node_s": 76.44,
+            "airtime_per_round_s": 229.319,
+            "max_downlink_rounds_per_day": 37.7
+          }
+        },
+        "end_to_end_rx2_sf9": {
+          "uplink": {
+            "payload_bytes": 1513.0,
+            "frames": 7,
+            "airtime_per_frame_s": 0.348,
+            "airtime_update_s": 2.439,
+            "min_cycle_s": 243.9,
+            "max_uplink_rounds_per_day": 354.3
+          },
+          "downlink": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 14,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 8.616,
+            "airtime_per_round_s": 25.848,
+            "max_downlink_rounds_per_day": 334.3
+          },
+          "sustainable_rounds_per_day": 334.3,
+          "binding_side": "downlink"
+        },
+        "crossover_nodes_rx2_sf9": 2.83
+      },
+      "sparse_only_k=0.4": {
+        "rmse_mean": 7.338347302535669,
+        "payload_bytes": 3570.1,
+        "v3_frames": 17,
+        "v3_rounds_per_day": 145.9,
+        "uplink": {
+          "payload_bytes": 3570.1,
+          "frames": 17,
+          "airtime_per_frame_s": 0.348,
+          "airtime_update_s": 5.923,
+          "min_cycle_s": 592.3,
+          "max_uplink_rounds_per_day": 145.9
+        },
+        "downlink": {
+          "RX1_SF7": {
+            "window": "RX1_SF7",
+            "note": "uplink channel, DR5/SF7, ETSI g1 sub-band",
+            "sf": 7,
+            "max_app_payload": 222,
+            "duty": 0.01,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 17,
+            "airtime_per_frame_s": 0.348,
+            "airtime_per_node_s": 5.923,
+            "airtime_per_round_s": 17.769,
+            "max_downlink_rounds_per_day": 48.6
+          },
+          "RX2_SF9": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 32,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 19.694,
+            "airtime_per_round_s": 59.081,
+            "max_downlink_rounds_per_day": 146.2
+          },
+          "RX2_SF12": {
+            "window": "RX2_SF12",
+            "note": "869.525 MHz, DR0/SF12 regional-parameter default, ETSI g3",
+            "sf": 12,
+            "max_app_payload": 51,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 73,
+            "airtime_per_frame_s": 2.466,
+            "airtime_per_node_s": 180.003,
+            "airtime_per_round_s": 540.008,
+            "max_downlink_rounds_per_day": 16.0
+          }
+        },
+        "end_to_end_rx2_sf9": {
+          "uplink": {
+            "payload_bytes": 3570.1,
+            "frames": 17,
+            "airtime_per_frame_s": 0.348,
+            "airtime_update_s": 5.923,
+            "min_cycle_s": 592.3,
+            "max_uplink_rounds_per_day": 145.9
+          },
+          "downlink": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 32,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 19.694,
+            "airtime_per_round_s": 59.081,
+            "max_downlink_rounds_per_day": 146.2
+          },
+          "sustainable_rounds_per_day": 145.9,
+          "binding_side": "uplink"
+        },
+        "crossover_nodes_rx2_sf9": 3.01
+      },
+      "both_k=0.4": {
+        "rmse_mean": 7.3262039640975924,
+        "payload_bytes": 1809.0,
+        "v3_frames": 9,
+        "v3_rounds_per_day": 275.5,
+        "uplink": {
+          "payload_bytes": 1809.0,
+          "frames": 9,
+          "airtime_per_frame_s": 0.348,
+          "airtime_update_s": 3.136,
+          "min_cycle_s": 313.6,
+          "max_uplink_rounds_per_day": 275.5
+        },
+        "downlink": {
+          "RX1_SF7": {
+            "window": "RX1_SF7",
+            "note": "uplink channel, DR5/SF7, ETSI g1 sub-band",
+            "sf": 7,
+            "max_app_payload": 222,
+            "duty": 0.01,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 9,
+            "airtime_per_frame_s": 0.348,
+            "airtime_per_node_s": 3.136,
+            "airtime_per_round_s": 9.407,
+            "max_downlink_rounds_per_day": 91.8
+          },
+          "RX2_SF9": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 17,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 10.462,
+            "airtime_per_round_s": 31.387,
+            "max_downlink_rounds_per_day": 275.3
+          },
+          "RX2_SF12": {
+            "window": "RX2_SF12",
+            "note": "869.525 MHz, DR0/SF12 regional-parameter default, ETSI g3",
+            "sf": 12,
+            "max_app_payload": 51,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 37,
+            "airtime_per_frame_s": 2.466,
+            "airtime_per_node_s": 91.234,
+            "airtime_per_round_s": 273.703,
+            "max_downlink_rounds_per_day": 31.6
+          }
+        },
+        "end_to_end_rx2_sf9": {
+          "uplink": {
+            "payload_bytes": 1809.0,
+            "frames": 9,
+            "airtime_per_frame_s": 0.348,
+            "airtime_update_s": 3.136,
+            "min_cycle_s": 313.6,
+            "max_uplink_rounds_per_day": 275.5
+          },
+          "downlink": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 17,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 10.462,
+            "airtime_per_round_s": 31.387,
+            "max_downlink_rounds_per_day": 275.3
+          },
+          "sustainable_rounds_per_day": 275.3,
+          "binding_side": "downlink"
+        },
+        "crossover_nodes_rx2_sf9": 3.0
+      },
+      "sparse_only_k=0.2": {
+        "rmse_mean": 8.24321420174666,
+        "payload_bytes": 1782.2,
+        "v3_frames": 9,
+        "v3_rounds_per_day": 275.5,
+        "uplink": {
+          "payload_bytes": 1782.2,
+          "frames": 9,
+          "airtime_per_frame_s": 0.348,
+          "airtime_update_s": 3.136,
+          "min_cycle_s": 313.6,
+          "max_uplink_rounds_per_day": 275.5
+        },
+        "downlink": {
+          "RX1_SF7": {
+            "window": "RX1_SF7",
+            "note": "uplink channel, DR5/SF7, ETSI g1 sub-band",
+            "sf": 7,
+            "max_app_payload": 222,
+            "duty": 0.01,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 9,
+            "airtime_per_frame_s": 0.348,
+            "airtime_per_node_s": 3.136,
+            "airtime_per_round_s": 9.407,
+            "max_downlink_rounds_per_day": 91.8
+          },
+          "RX2_SF9": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 16,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 9.847,
+            "airtime_per_round_s": 29.54,
+            "max_downlink_rounds_per_day": 292.5
+          },
+          "RX2_SF12": {
+            "window": "RX2_SF12",
+            "note": "869.525 MHz, DR0/SF12 regional-parameter default, ETSI g3",
+            "sf": 12,
+            "max_app_payload": 51,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 37,
+            "airtime_per_frame_s": 2.466,
+            "airtime_per_node_s": 91.234,
+            "airtime_per_round_s": 273.703,
+            "max_downlink_rounds_per_day": 31.6
+          }
+        },
+        "end_to_end_rx2_sf9": {
+          "uplink": {
+            "payload_bytes": 1782.2,
+            "frames": 9,
+            "airtime_per_frame_s": 0.348,
+            "airtime_update_s": 3.136,
+            "min_cycle_s": 313.6,
+            "max_uplink_rounds_per_day": 275.5
+          },
+          "downlink": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 16,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 9.847,
+            "airtime_per_round_s": 29.54,
+            "max_downlink_rounds_per_day": 292.5
+          },
+          "sustainable_rounds_per_day": 275.5,
+          "binding_side": "uplink"
+        },
+        "crossover_nodes_rx2_sf9": 3.18
+      },
+      "both_k=0.2": {
+        "rmse_mean": 8.221896205372579,
+        "payload_bytes": 915.0,
+        "v3_frames": 5,
+        "v3_rounds_per_day": 496.0,
+        "uplink": {
+          "payload_bytes": 915.0,
+          "frames": 5,
+          "airtime_per_frame_s": 0.348,
+          "airtime_update_s": 1.742,
+          "min_cycle_s": 174.2,
+          "max_uplink_rounds_per_day": 496.0
+        },
+        "downlink": {
+          "RX1_SF7": {
+            "window": "RX1_SF7",
+            "note": "uplink channel, DR5/SF7, ETSI g1 sub-band",
+            "sf": 7,
+            "max_app_payload": 222,
+            "duty": 0.01,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 5,
+            "airtime_per_frame_s": 0.348,
+            "airtime_per_node_s": 1.742,
+            "airtime_per_round_s": 5.226,
+            "max_downlink_rounds_per_day": 165.3
+          },
+          "RX2_SF9": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 9,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 5.539,
+            "airtime_per_round_s": 16.616,
+            "max_downlink_rounds_per_day": 520.0
+          },
+          "RX2_SF12": {
+            "window": "RX2_SF12",
+            "note": "869.525 MHz, DR0/SF12 regional-parameter default, ETSI g3",
+            "sf": 12,
+            "max_app_payload": 51,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 19,
+            "airtime_per_frame_s": 2.466,
+            "airtime_per_node_s": 46.85,
+            "airtime_per_round_s": 140.55,
+            "max_downlink_rounds_per_day": 61.5
+          }
+        },
+        "end_to_end_rx2_sf9": {
+          "uplink": {
+            "payload_bytes": 915.0,
+            "frames": 5,
+            "airtime_per_frame_s": 0.348,
+            "airtime_update_s": 1.742,
+            "min_cycle_s": 174.2,
+            "max_uplink_rounds_per_day": 496.0
+          },
+          "downlink": {
+            "window": "RX2_SF9",
+            "note": "869.525 MHz, DR3/SF9 as used by public networks, ETSI g3",
+            "sf": 9,
+            "max_app_payload": 115,
+            "duty": 0.1,
+            "n_nodes": 3,
+            "multicast": false,
+            "frames": 9,
+            "airtime_per_frame_s": 0.615,
+            "airtime_per_node_s": 5.539,
+            "airtime_per_round_s": 16.616,
+            "max_downlink_rounds_per_day": 520.0
+          },
+          "sustainable_rounds_per_day": 496.0,
+          "binding_side": "uplink"
+        },
+        "crossover_nodes_rx2_sf9": 3.14
+      }
+    },
+    "fleet_scaling_rx2_sf9": {
+      "dense_f32": {
+        "3": 88.3,
+        "5": 53.0,
+        "10": 26.5,
+        "20": 13.2,
+        "50": 5.3,
+        "multicast": 88.6
+      },
+      "quant_only": {
+        "3": 334.3,
+        "5": 200.6,
+        "10": 100.3,
+        "20": 50.1,
+        "50": 20.1,
+        "multicast": 354.3
+      },
+      "both_k=0.4": {
+        "3": 275.3,
+        "5": 165.2,
+        "10": 82.6,
+        "20": 41.3,
+        "50": 16.5,
+        "multicast": 275.5
+      }
+    },
+    "frag_hdr_bytes": 2
+  },
+  "models": {
+    "TinyLSTM": {
+      "params": 1489,
+      "drift_noniid": {
+        "cos_mean": {
+          "mean": 0.05386205261027262,
+          "std": 0.025166711575732335
+        },
+        "cos_first_round": {
+          "mean": 0.5650400438081624,
+          "std": 0.13237137484118236
+        },
+        "cos_last_round": {
+          "mean": -0.07277483457251667,
+          "std": 0.08706804435693313
+        },
+        "drift_mean": {
+          "mean": 1.3569158587897272,
+          "std": 0.05275785863361038
+        }
+      },
+      "drift_iid": {
+        "cos_mean": {
+          "mean": 0.1636262417475359,
+          "std": 0.06678057305619436
+        },
+        "cos_first_round": {
+          "mean": 0.8700289484005916,
+          "std": 0.04061861934569928
+        },
+        "cos_last_round": {
+          "mean": -0.05852841127705795,
+          "std": 0.07812167730350746
+        },
+        "drift_mean": {
+          "mean": 1.1887514831081072,
+          "std": 0.11332935873566632
+        }
+      },
+      "T-FL-Rep": {
+        "Zone1": {
+          "rmse": {
+            "mean": 9.71504602401873,
+            "std": 2.664667650610405
+          },
+          "mae": {
+            "mean": 7.432818031311035,
+            "std": 2.7691248949909664
+          },
+          "r2": {
+            "mean": 0.8415776133537293,
+            "std": 0.08535087958036669
+          }
+        },
+        "Zone2": {
+          "rmse": {
+            "mean": 8.8601527548111,
+            "std": 1.6664596282728537
+          },
+          "mae": {
+            "mean": 4.446138525009156,
+            "std": 1.1363330498527686
+          },
+          "r2": {
+            "mean": 0.892553961277008,
+            "std": 0.040173502449254314
+          }
+        },
+        "Zone3": {
+          "rmse": {
+            "mean": 2.2224074311965762,
+            "std": 0.6719286103132165
+          },
+          "mae": {
+            "mean": 1.7702391147613525,
+            "std": 0.6953714730597961
+          },
+          "r2": {
+            "mean": 0.5155621647834778,
+            "std": 0.3218099930197955
+          }
+        },
+        "Global": {
+          "rmse": {
+            "mean": 7.575920105232027,
+            "std": 1.6353211760801258
+          },
+          "mae": {
+            "mean": 4.361574983596801,
+            "std": 1.133411623063971
+          },
+          "r2": {
+            "mean": 0.8907673239707947,
+            "std": 0.04704049310138307
+          }
+        },
+        "uplink_bytes_per_round_f32": 5888,
+        "uplink_bytes_per_round_int8": 1488
+      },
+      "T-FL_seen": {
+        "Zone1": {
+          "mean": 8.393685832335803,
+          "std": 0.5636565268599025
+        },
+        "Zone2": {
+          "mean": 7.654008872913499,
+          "std": 0.6352856846684323
+        },
+        "Zone3": {
+          "mean": 2.705443180731123,
+          "std": 0.550321834816785
+        }
+      },
+      "lozo": {
+        "Zone1": {
+          "zero_shot": {
+            "rmse": {
+              "mean": 12.409961082400509,
+              "std": 2.095399528791086
+            },
+            "mae": {
+              "mean": 7.411818981170654,
+              "std": 1.2622775956360606
+            },
+            "r2": {
+              "mean": 0.7527283549308776,
+              "std": 0.08440954543500706
+            }
+          },
+          "adapt_1_rounds": {
+            "rmse": {
+              "mean": 10.655263897673265,
+              "std": 1.8384360528857473
+            },
+            "mae": {
+              "mean": 7.661255264282227,
+              "std": 1.7222296779184916
+            },
+            "r2": {
+              "mean": 0.8174871683120728,
+              "std": 0.06166954358680257
+            }
+          },
+          "adapt_5_rounds": {
+            "rmse": {
+              "mean": 8.660487602975218,
+              "std": 1.0237097287998846
+            },
+            "mae": {
+              "mean": 6.158681488037109,
+              "std": 0.7586975264121417
+            },
+            "r2": {
+              "mean": 0.8812767148017884,
+              "std": 0.028314098174965607
+            }
+          }
+        },
+        "Zone2": {
+          "zero_shot": {
+            "rmse": {
+              "mean": 8.029384716267518,
+              "std": 0.7092173551743784
+            },
+            "mae": {
+              "mean": 4.0860569953918455,
+              "std": 0.5661419354856078
+            },
+            "r2": {
+              "mean": 0.9141085982322693,
+              "std": 0.014883303176140063
+            }
+          },
+          "adapt_1_rounds": {
+            "rmse": {
+              "mean": 8.259145442193661,
+              "std": 1.1175039815034418
+            },
+            "mae": {
+              "mean": 4.539515209197998,
+              "std": 1.072186793078913
+            },
+            "r2": {
+              "mean": 0.9081753730773926,
+              "std": 0.02564680158643927
+            }
+          },
+          "adapt_5_rounds": {
+            "rmse": {
+              "mean": 8.001905492961829,
+              "std": 0.6048883036405457
+            },
+            "mae": {
+              "mean": 4.201878356933594,
+              "std": 0.5631297697743929
+            },
+            "r2": {
+              "mean": 0.9148721814155578,
+              "std": 0.013204864176931437
+            }
+          }
+        },
+        "Zone3": {
+          "zero_shot": {
+            "rmse": {
+              "mean": 3.6400277047519856,
+              "std": 0.84552986420643
+            },
+            "mae": {
+              "mean": 3.2089887142181395,
+              "std": 0.8106193573039759
+            },
+            "r2": {
+              "mean": -0.2549737453460693,
+              "std": 0.5304613439780899
+            }
+          },
+          "adapt_1_rounds": {
+            "rmse": {
+              "mean": 1.7004515572944439,
+              "std": 0.33330508449194796
+            },
+            "mae": {
+              "mean": 1.3766916155815125,
+              "std": 0.2739956208382101
+            },
+            "r2": {
+              "mean": 0.7301615357398987,
+              "std": 0.09964667243294269
+            }
+          },
+          "adapt_5_rounds": {
+            "rmse": {
+              "mean": 1.4754143225804888,
+              "std": 0.23748844779443073
+            },
+            "mae": {
+              "mean": 1.1602776050567627,
+              "std": 0.1716868624294314
+            },
+            "r2": {
+              "mean": 0.7993037223815918,
+              "std": 0.06114241989907209
+            }
+          }
+        }
+      }
+    },
+    "1D-CNN": {
+      "params": 417,
+      "drift_noniid": {
+        "cos_mean": {
+          "mean": 0.08026498307526136,
+          "std": 0.040406830245411966
+        },
+        "cos_first_round": {
+          "mean": 0.7301597756332276,
+          "std": 0.15428405517173516
+        },
+        "cos_last_round": {
+          "mean": -0.08690243860751716,
+          "std": 0.0734241296008639
+        },
+        "drift_mean": {
+          "mean": 1.3292556042086603,
+          "std": 0.0724938286960598
+        }
+      },
+      "drift_iid": {
+        "cos_mean": {
+          "mean": 0.14378273957116908,
+          "std": 0.03688692282792639
+        },
+        "cos_first_round": {
+          "mean": 0.8198074641472773,
+          "std": 0.06367140377472384
+        },
+        "cos_last_round": {
+          "mean": -0.03482185746690919,
+          "std": 0.11127050502554396
+        },
+        "drift_mean": {
+          "mean": 1.1981807154716566,
+          "std": 0.06264652135888363
+        }
+      },
+      "T-FL-Rep": {
+        "Zone1": {
+          "rmse": {
+            "mean": 11.86060986224154,
+            "std": 1.3320993537925419
+          },
+          "mae": {
+            "mean": 9.284000492095947,
+            "std": 1.231426141130238
+          },
+          "r2": {
+            "mean": 0.7776264667510986,
+            "std": 0.048805190446833416
+          }
+        },
+        "Zone2": {
+          "rmse": {
+            "mean": 11.890695742535817,
+            "std": 1.4605402694064091
+          },
+          "mae": {
+            "mean": 7.486349391937256,
+            "std": 1.6490382377502626
+          },
+          "r2": {
+            "mean": 0.810273540019989,
+            "std": 0.04921207997127957
+          }
+        },
+        "Zone3": {
+          "rmse": {
+            "mean": 6.631518311281596,
+            "std": 3.1776304191359857
+          },
+          "mae": {
+            "mean": 5.234558916091919,
+            "std": 2.9806148301592468
+          },
+          "r2": {
+            "mean": -3.8595248818397523,
+            "std": 4.680534454951819
+          }
+        },
+        "Global": {
+          "rmse": {
+            "mean": 10.481446551979698,
+            "std": 1.1842905763383589
+          },
+          "mae": {
+            "mean": 7.2064532279968265,
+            "std": 1.366972204857399
+          },
+          "r2": {
+            "mean": 0.7976723909378052,
+            "std": 0.04861051780486023
+          }
+        },
+        "uplink_bytes_per_round_f32": 1024,
+        "uplink_bytes_per_round_int8": 264
+      },
+      "T-FL_seen": {
+        "Zone1": {
+          "mean": 10.010433055869715,
+          "std": 0.7127622048823303
+        },
+        "Zone2": {
+          "mean": 9.603344119474414,
+          "std": 0.6751931485860887
+        },
+        "Zone3": {
+          "mean": 4.774403459705721,
+          "std": 0.9146003703976866
+        }
+      },
+      "lozo": {
+        "Zone1": {
+          "zero_shot": {
+            "rmse": {
+              "mean": 12.059376696341355,
+              "std": 1.388036228707278
+            },
+            "mae": {
+              "mean": 8.201231575012207,
+              "std": 1.3534951227381355
+            },
+            "r2": {
+              "mean": 0.7699667692184449,
+              "std": 0.05254855160456997
+            }
+          },
+          "adapt_1_rounds": {
+            "rmse": {
+              "mean": 14.273911970185688,
+              "std": 2.8323402946907326
+            },
+            "mae": {
+              "mean": 12.057462692260742,
+              "std": 2.799104603937437
+            },
+            "r2": {
+              "mean": 0.669415271282196,
+              "std": 0.12715639669538964
+            }
+          },
+          "adapt_5_rounds": {
+            "rmse": {
+              "mean": 10.106066984644068,
+              "std": 0.48390205674283215
+            },
+            "mae": {
+              "mean": 7.848708534240723,
+              "std": 0.43774627684194556
+            },
+            "r2": {
+              "mean": 0.8401973366737365,
+              "std": 0.015399946961753076
+            }
+          }
+        },
+        "Zone2": {
+          "zero_shot": {
+            "rmse": {
+              "mean": 11.0002596497983,
+              "std": 1.5428195862417777
+            },
+            "mae": {
+              "mean": 7.838902950286865,
+              "std": 1.5641825679822599
+            },
+            "r2": {
+              "mean": 0.8368917465209961,
+              "std": 0.04678202874711019
+            }
+          },
+          "adapt_1_rounds": {
+            "rmse": {
+              "mean": 13.508389774777246,
+              "std": 4.878173445449123
+            },
+            "mae": {
+              "mean": 10.471104621887207,
+              "std": 5.40349747143836
+            },
+            "r2": {
+              "mean": 0.7273203492164612,
+              "std": 0.20974991782334085
+            }
+          },
+          "adapt_5_rounds": {
+            "rmse": {
+              "mean": 9.917413052476789,
+              "std": 1.2470727979391953
+            },
+            "mae": {
+              "mean": 7.050825023651123,
+              "std": 1.1623671936533728
+            },
+            "r2": {
+              "mean": 0.8679251432418823,
+              "std": 0.033437272739050734
+            }
+          }
+        },
+        "Zone3": {
+          "zero_shot": {
+            "rmse": {
+              "mean": 7.7544066694237825,
+              "std": 3.3447549835008807
+            },
+            "mae": {
+              "mean": 6.533821725845337,
+              "std": 3.0628581371184516
+            },
+            "r2": {
+              "mean": -5.409184384346008,
+              "std": 4.987784430511139
+            }
+          },
+          "adapt_1_rounds": {
+            "rmse": {
+              "mean": 6.7352259594629675,
+              "std": 0.8175275534261421
+            },
+            "mae": {
+              "mean": 5.31026439666748,
+              "std": 0.6357917200361504
+            },
+            "r2": {
+              "mean": -3.136743497848511,
+              "std": 0.9105573172501834
+            }
+          },
+          "adapt_5_rounds": {
+            "rmse": {
+              "mean": 7.715028850882118,
+              "std": 2.945934050751123
+            },
+            "mae": {
+              "mean": 6.437614917755127,
+              "std": 2.6449654733953714
+            },
+            "r2": {
+              "mean": -5.128976774215698,
+              "std": 4.1385061822609215
+            }
+          }
+        }
+      }
+    }
+  }
+}
