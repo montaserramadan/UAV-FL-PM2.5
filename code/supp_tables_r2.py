@@ -12,8 +12,9 @@ from fl_experiment_v3 import lorawan_airtime
 MAC, HDR = 13, 2
 WIN = {"uplink SF7": (7, 222, 0.01), "RX1 SF7": (7, 222, 0.01),
        "RX2 SF9": (9, 115, 0.10), "RX2 SF12": (12, 51, 0.10)}
-PAY = {"Dense f32": 5956, "Quantised": 1513, "Top-40% + q": 1809,
-       "Top-10% + q + EF": 468}
+# (uplink update, downlink broadcast model)
+PAY = {"Dense f32": (5956, 5956), "Quantised": (1513, 1513), "Top-40% + q": (1809, 1513),
+       "Top-10% + q + EF": (468, 1513)}
 
 
 def side(pb, sf, mx, duty):
@@ -23,15 +24,15 @@ def side(pb, sf, mx, duty):
 
 
 out = {"S3": {}, "S4": {}}
-for name, pb in PAY.items():
+for name, (pb, pdl) in PAY.items():
     rows = {}
     for w, (sf, mx, d) in WIN.items():
-        fr, t, tl = side(pb, sf, mx, d)
+        fr, t, tl = side(pb if w == "uplink SF7" else pdl, sf, mx, d)
         n = 1 if w == "uplink SF7" else 3
         rows[w] = dict(frames=fr, per_day=86400.0 / (tl * n))
     out["S3"][name] = rows
     _, _, t_up = side(pb, 7, 222, 0.01)
-    _, _, t_dn = side(pb, 9, 115, 0.10)
+    _, _, t_dn = side(pdl, 9, 115, 0.10)
     sc = {str(N): 86400.0 / (t_up + N * t_dn) for N in (3, 5, 10, 20, 50)}
     sc["multicast"] = 86400.0 / (t_up + t_dn)
     sc["gateway_exceeds_node_at_N"] = t_up / t_dn

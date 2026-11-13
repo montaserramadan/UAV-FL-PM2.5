@@ -40,14 +40,17 @@ SCEN = {"ideal": (0.0, 0.0), "lossy": (0.10, 0.05)}
 N = 3
 for r in rows:
     pb = r["payload"]
-    U = L.nfrag(pb, L.UL["max_app"]); D = L.nfrag(pb, L.DL["max_app"])
+    # downlink = the global model the gateway broadcasts, not a client update
+    pd = 5956 if "f32" in r["label"] else 1513
+    r["dl_payload"] = pd
+    U = L.nfrag(pb, L.UL["max_app"]); D = L.nfrag(pd, L.DL["max_app"])
     r["ul_frames"], r["dl_frames"] = U, D
     r["uplink_cap"] = 86400 * L.UL["duty"] / (U * L.T_UL_FULL)
     r["gateway_cap_N3"] = 86400 * L.DL["duty"] / (N * D * L.T_DL_FULL)
     r["v4_style_min"] = min(r["uplink_cap"], r["gateway_cap_N3"])
-    r["serial_ceiling"] = L.ideal_serial(pb, N)
+    r["serial_ceiling"] = L.ideal_serial(pb, N, pd)
     for s, (per, bg) in SCEN.items():
-        sims = [L.simulate(pb, N, per, bg, False, rounds=10, seed=i) for i in range(5)]
+        sims = [L.simulate(pb, N, per, bg, False, rounds=10, seed=i, dl_payload=pd) for i in range(5)]
         r[f"sim_{s}"] = float(np.mean([x["rounds_per_day"] for x in sims]))
         r[f"sim_{s}_std"] = float(np.std([x["rounds_per_day"] for x in sims]))
         r[f"sim_{s}_full"] = float(np.mean([x["full_participation"] for x in sims]))

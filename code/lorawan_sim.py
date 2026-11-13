@@ -65,11 +65,11 @@ def nfrag(payload, max_app):
 
 
 class Sim:
-    def __init__(self, payload, n_nodes, per, bg_load, multicast, t_train, seed):
+    def __init__(self, payload, n_nodes, per, bg_load, multicast, t_train, seed, dl_payload=None):
         self.rng = np.random.default_rng(seed)
         self.N, self.per, self.mc, self.t_train = n_nodes, per, multicast, t_train
         self.U = nfrag(payload, UL["max_app"])
-        self.D = nfrag(payload, DL["max_app"])
+        self.D = nfrag(payload if dl_payload is None else dl_payload, DL["max_app"])
         # background: Poisson per channel with normalised offered load bg_load
         self.lam_bg = bg_load / T_BG
         self.node_free = np.zeros(n_nodes)      # duty-cycle release time, g1
@@ -227,9 +227,9 @@ class Sim:
         return tend, self.N - sum(dropped)
 
 
-def simulate(payload, n_nodes, per, bg_load, multicast=False, t_train=2.0,
+def simulate(payload, n_nodes, per, bg_load, multicast=False, t_train=2.0, dl_payload=None,
              rounds=30, seed=0):
-    sim = Sim(payload, n_nodes, per, bg_load, multicast, t_train, seed)
+    sim = Sim(payload, n_nodes, per, bg_load, multicast, t_train, seed, dl_payload)
     t, durs, arrived = 0.0, [], []
     for _ in range(rounds):
         t1, a = sim.round(t)
@@ -244,27 +244,31 @@ def simulate(payload, n_nodes, per, bg_load, multicast=False, t_train=2.0,
                 gw_airtime_s_round=float(sim.gw_airtime / rounds))
 
 
-PAYLOADS = {   # TinyLSTM uplink payloads (bytes) from results_fl_v3/v5
-    "dense f32": 5956,
-    "int8": 1513,
-    "top-k int8 k=0.2": 915,
-    "top-k+EF k=0.1": 468,
-    "EF-signSGD": 211,
+# (uplink update, downlink broadcast) in bytes.  The gateway sends the global
+# model: float32 (5,956 B) for the float row, 8-bit (1,513 B) otherwise.
+PAYLOADS = {
+    "dense f32": (5956, 5956),
+    "int8": (1513, 1513),
+    "top-k int8 k=0.2": (915, 1513),
+    "top-k+EF k=0.1": (468, 1513),
+    "EF-signSGD": (211, 1513),
 }
 
 
-def ideal(payload, n):
+def ideal(payload, n, dl_payload=None):
     """Analytical ceiling with the same full PHY payload, for comparison."""
-    U, D = nfrag(payload, UL["max_app"]), nfrag(payload, DL["max_app"])
+    U = nfrag(payload, UL["max_app"])
+    D = nfrag(payload if dl_payload is None else dl_payload, DL["max_app"])
     up = 86400 * UL["duty"] / (U * T_UL_FULL)
     dn = 86400 * DL["duty"] / (n * D * T_DL_FULL)
     return min(up, dn)
 
 
-def ideal_serial(payload, n):
+def ideal_serial(payload, n, dl_payload=None):
     """Same airtime, but downlink and uplink phases of a synchronous round run
     one after the other instead of overlapping."""
-    U, D = nfrag(payload, UL["max_app"]), nfrag(payload, DL["max_app"])
+    U = nfrag(payload, UL["max_app"])
+    D = nfrag(payload if dl_payload is None else dl_payload, DL["max_app"])
     t_up = U * T_UL_FULL / UL["duty"]
     t_dn = n * D * T_DL_FULL / DL["duty"]
     return 86400.0 / (t_up + t_dn)
@@ -280,17 +284,17 @@ def main():
     print(f"ToA: UL222 {T_UL_FULL*1e3:.1f} ms  poll {T_POLL*1e3:.1f} ms  "
           f"DL115@SF9 {T_DL_FULL*1e3:.1f} ms  ack {T_ACK*1e3:.1f} ms", flush=True)
     pick = sys.argv[1:] or list(PAYLOADS)
-    for name, pb in [(k, PAYLOADS[k]) for k in pick]:
+    for name, (pb, pd) in [(k, PAYLOADS[k]) for k in pick]:
         for n in (3, 10, 20):
             for per in (0.0, 0.10, 0.20):
                 for bg in (0.0, 0.05):
                     for mc in (False, True):
                         if mc and (per, bg) not in ((0.0, 0.0), (0.10, 0.05)):
                             continue
-                        rs = [simulate(pb, n, per, bg, mc, rounds=10, seed=r) for r in range(reps)]
+                        rs = [simulate(pb, n, per, bg, mc, rounds=10, seed=r, dl_payload=pd) for r in range(reps)]
                         row = dict(config=name, payload=pb, n=n, per=per, bg_load=bg,
-                                   multicast=mc, ideal_rounds_per_day=ideal(pb, n),
-                                   ideal_serial_rounds_per_day=ideal_serial(pb, n))
+                                   multicast=mc, dl_payload=pd, ideal_rounds_per_day=ideal(pb, n, pd),
+                                   ideal_serial_rounds_per_day=ideal_serial(pb, n, pd))
                         for k in rs[0]:
                             v = [r[k] for r in rs]
                             row[k] = float(np.mean(v))
