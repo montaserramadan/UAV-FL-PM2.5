@@ -1,0 +1,197 @@
+{
+  "batch": 8,
+  "seq": 12,
+  "local_epochs": 2,
+  "train_windows": {
+    "Zone1": 129,
+    "Zone2": 153,
+    "Zone3": 156
+  },
+  "assumptions": {
+    "flop_per_cycle": [
+      0.1,
+      0.5
+    ],
+    "flight_W": [
+      100.0,
+      250.0
+    ],
+    "adam_flops_per_param": 12
+  },
+  "models": {
+    "TinyLSTM": {
+      "params": 1489,
+      "fwd_flops_batch": 285952,
+      "fwd_bwd_flops_batch": 857856,
+      "manual_fwd_flops_window": 35744,
+      "flops_per_minibatch_step": 875724,
+      "memory": {
+        "params_B": 5956,
+        "grads_B": 5956,
+        "adam_B": 11912,
+        "activations_B": 44928,
+        "total_training_B": 68752
+      },
+      "train_buffer_B": {
+        "Zone1": 2820,
+        "Zone2": 3300,
+        "Zone3": 3360
+      },
+      "per_round": {
+        "Zone1": {
+          "minibatch_steps": 34,
+          "flops": 29774616
+        },
+        "Zone2": {
+          "minibatch_steps": 40,
+          "flops": 35028960
+        },
+        "Zone3": {
+          "minibatch_steps": 40,
+          "flops": 35028960
+        }
+      },
+      "worst_round_flops": 35028960,
+      "mcu": {
+        "Cortex-M4F @ 80 MHz (STM32L4-class)": {
+          "train_s_per_round": [
+            0.875724,
+            4.37862
+          ],
+          "energy_J_per_round": [
+            0.01313586,
+            0.17514479999999996
+          ],
+          "ram_needed_kB": 70.421875,
+          "sram_kB": 128,
+          "ram_fraction": 0.5501708984375,
+          "flight_seconds_equivalent": [
+            5.254344e-05,
+            0.0017514479999999996
+          ]
+        },
+        "Cortex-M4F @ 64 MHz (nRF52840-class)": {
+          "train_s_per_round": [
+            1.094655,
+            5.473275
+          ],
+          "energy_J_per_round": [
+            0.016419825,
+            0.21893100000000001
+          ],
+          "ram_needed_kB": 70.421875,
+          "sram_kB": 256,
+          "ram_fraction": 0.27508544921875,
+          "flight_seconds_equivalent": [
+            6.56793e-05,
+            0.0021893100000000003
+          ]
+        },
+        "Xtensa LX7 @ 240 MHz (ESP32-S3-class)": {
+          "train_s_per_round": [
+            0.291908,
+            1.45954
+          ],
+          "energy_J_per_round": [
+            0.043786200000000004,
+            0.4816482
+          ],
+          "ram_needed_kB": 70.421875,
+          "sram_kB": 512,
+          "ram_fraction": 0.137542724609375,
+          "flight_seconds_equivalent": [
+            0.00017514480000000002,
+            0.004816482
+          ]
+        }
+      }
+    },
+    "1D-CNN": {
+      "params": 417,
+      "fwd_flops_batch": 40960,
+      "fwd_bwd_flops_batch": 84480,
+      "manual_fwd_flops_window": null,
+      "flops_per_minibatch_step": 89484,
+      "memory": {
+        "params_B": 1668,
+        "grads_B": 1668,
+        "adam_B": 3336,
+        "activations_B": 12160,
+        "total_training_B": 18832
+      },
+      "train_buffer_B": {
+        "Zone1": 2820,
+        "Zone2": 3300,
+        "Zone3": 3360
+      },
+      "per_round": {
+        "Zone1": {
+          "minibatch_steps": 34,
+          "flops": 3042456
+        },
+        "Zone2": {
+          "minibatch_steps": 40,
+          "flops": 3579360
+        },
+        "Zone3": {
+          "minibatch_steps": 40,
+          "flops": 3579360
+        }
+      },
+      "worst_round_flops": 3579360,
+      "mcu": {
+        "Cortex-M4F @ 80 MHz (STM32L4-class)": {
+          "train_s_per_round": [
+            0.089484,
+            0.44742
+          ],
+          "energy_J_per_round": [
+            0.00134226,
+            0.017896799999999997
+          ],
+          "ram_needed_kB": 21.671875,
+          "sram_kB": 128,
+          "ram_fraction": 0.1693115234375,
+          "flight_seconds_equivalent": [
+            5.36904e-06,
+            0.00017896799999999997
+          ]
+        },
+        "Cortex-M4F @ 64 MHz (nRF52840-class)": {
+          "train_s_per_round": [
+            0.111855,
+            0.559275
+          ],
+          "energy_J_per_round": [
+            0.001677825,
+            0.022371
+          ],
+          "ram_needed_kB": 21.671875,
+          "sram_kB": 256,
+          "ram_fraction": 0.08465576171875,
+          "flight_seconds_equivalent": [
+            6.7113e-06,
+            0.00022370999999999998
+          ]
+        },
+        "Xtensa LX7 @ 240 MHz (ESP32-S3-class)": {
+          "train_s_per_round": [
+            0.029828,
+            0.14914
+          ],
+          "energy_J_per_round": [
+            0.004474199999999999,
+            0.0492162
+          ],
+          "ram_needed_kB": 21.671875,
+          "sram_kB": 512,
+          "ram_fraction": 0.042327880859375,
+          "flight_seconds_equivalent": [
+            1.7896799999999998e-05,
+            0.000492162
+          ]
+        }
+      }
+    }
+  }
+}
